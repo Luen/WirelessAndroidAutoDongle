@@ -4,7 +4,7 @@ services:
   bash: &base
     build: .
     image: aawg-buildroot
-    volumes:
+    volumes: 
       - .:/app
       - dl:/app/buildroot/dl
       - output:/app/buildroot/output
