@@ -13,14 +13,50 @@ disable_overscan=1
 # Add the following line if the board need reduce power drain and increase performance disabling hdmi port
 hdmi_blanking=1
 
+# disable HDMI (saves power)
+max_framebuffers=0
+# don't try to read HDMI eeprom
+hdmi_ignore_edid=0xa5000080
+hdmi_ignore_cec_init=1
+hdmi_ignore_cec=1
+hdmi_ignore_hotplug=1
+disable_fw_kms_setup=1
+# disable composite video output
+enable_tvout=0
+
+# all these options cause a wait for an I2C bus response
+force_eeprom_read=0
+ignore_lcd=1
+disable_touchscreen=1
+camera_auto_detect=0
+display_auto_detect=0
+
 # How much memory in MB to assign to the GPU on Pi models having
 # 256, 512 or 1024 MB total memory
-gpu_mem_256=100
-gpu_mem_512=100
-gpu_mem_1024=100
+#gpu_mem_256=100
+#gpu_mem_512=100
+#gpu_mem_1024=100
+
+# start_cd.elf is used in the case we specify 16MB
+# https://github.com/nisargjhaveri/WirelessAndroidAutoDongle/commit/ad334e8fe0e320baaafccdd0b9a062c43560a1b8
+[pi0]
+gpu_mem_256=16
+gpu_mem_512=16
+[all]
+gpu_mem_512=64
+gpu_mem_1024=64
 
 # Enable autoprobing of Bluetooth driver without need of hciattach/btattach
 dtparam=krnbt=on
 
 # Enable dwc2 required for gadget mode
 dtoverlay=dwc2,dr_mode=peripheral
+
+# Overclocking Rpi Zero 2W slightly. Does not need heat-sink to support these slight improvements 
+arm_freq=1085
+arm_freq_min=685
+core_freq=515
+core_freq_min=365
+over_voltage=2
+sdram_freq=533
+over_voltage_sdram=1

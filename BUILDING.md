@@ -11,6 +11,14 @@ $ git clone --recurse-submodules https://github.com/nisargjhaveri/WirelessAndroi
 ```
 
 ## Build with Docker
+
+If using windows, use wsl.
+
+```shell
+wsl --install
+wsl -l -v
+```
+
 ```shell
 $ docker compose run --rm rpi4 # See docker-compose.yml for available options.
 ```
